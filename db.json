@@ -1,0 +1,91 @@
+{
+  "services": [
+    {
+      "id": "1",
+      "name": "Corte Masculino",
+      "description": "Corte personalizado de acordo com seu estilo.",
+      "price": 40,
+      "rating": 4.9,
+      "image": ""
+    },
+    {
+      "id": "2",
+      "name": "Barba",
+      "description": "Modelagem e acabamento completo da barba.",
+      "price": 30,
+      "rating": 4.8,
+      "image": ""
+    },
+    {
+      "id": "3",
+      "name": "Corte + Barba",
+      "description": "Experiência completa de corte e barba.",
+      "price": 65,
+      "rating": 5,
+      "image": ""
+    },
+    {
+      "id": "4",
+      "name": "Degradê",
+      "description": "Degradê moderno com acabamento detalhado.",
+      "price": 45,
+      "rating": 4.9,
+      "image": ""
+    },
+    {
+      "id": "5",
+      "name": "Corte Infantil",
+      "description": "Corte clássico realizado totalmente na tesoura.",
+      "price": 50,
+      "rating": 4.8,
+      "image": ""
+    },
+    {
+      "id": "6",
+      "name": "Acabamento",
+      "description": "Contorno e acabamento para manter o visual alinhado.",
+      "price": 20,
+      "rating": 4.7,
+      "image": ""
+    }
+  ],
+  "professionals": [
+    {
+      "id": "1",
+      "name": "Lucas",
+      "specialty": "Cortes modernos e degradê",
+      "rating": 4.9,
+      "image": ""
+    },
+    {
+      "id": "2",
+      "name": "Rafael",
+      "specialty": "Barba e cortes clássicos",
+      "rating": 4.8,
+      "image": ""
+    },
+    {
+      "id": "3",
+      "name": "Matheus",
+      "specialty": "Degradê e cortes na tesoura",
+      "rating": 4.9,
+      "image": ""
+    },
+    {
+      "id": "4",
+      "name": "Gabriel",
+      "specialty": "Corte e barba",
+      "rating": 4.8,
+      "image": ""
+    },
+    {
+      "id": "5",
+      "name": "Bruno",
+      "specialty": "Cortes modernos e barba",
+      "rating": 4.9,
+      "image": ""
+    }
+  ],
+  "appointments": [],
+  "$schema": "./node_modules/json-server/schema.json"
+}
