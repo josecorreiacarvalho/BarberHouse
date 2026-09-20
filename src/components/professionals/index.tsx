@@ -1,5 +1,5 @@
-import { FlatList } from "react-native";
 import { useEffect, useState } from "react";
+import { FlatList } from "react-native";
 import { ProfessionalItem } from "./horizontal";
 
 export interface ProfessionalProps {
@@ -14,7 +14,7 @@ export function Professionals() {
   useEffect(() => {
     async function getProfessionals() {
       const response = await fetch(
-        "http://192.168.1.132:3000/professionals"
+        "https://barberhouse-hsdm.onrender.com/professionals",
       );
 
       const data = await response.json();
@@ -38,3 +38,4 @@ export function Professionals() {
     />
   );
 }
+

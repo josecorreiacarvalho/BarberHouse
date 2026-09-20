@@ -1,5 +1,5 @@
-import { View } from "react-native";
 import { useEffect, useState } from "react";
+import { View } from "react-native";
 import { ServiceListItem } from "./item";
 
 export interface ServiceListProps {
@@ -17,7 +17,7 @@ export function ServiceVerticalList() {
   useEffect(() => {
     async function getServices() {
       const response = await fetch(
-        "http://192.168.1.132:3000/services"
+        "https://barberhouse-hsdm.onrender.com/services",
       );
 
       const data = await response.json();
@@ -35,3 +35,4 @@ export function ServiceVerticalList() {
     </View>
   );
 }
+

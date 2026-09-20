@@ -28,3 +28,4 @@ export function ProfessionalItem({ item }: { item: ProfessionalProps }) {
     </Pressable>
   );
 }
+

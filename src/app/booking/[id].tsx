@@ -1,6 +1,6 @@
-import { View, Text, Image, Pressable } from "react-native";
-import { useEffect, useState } from "react";
 import { router, useLocalSearchParams } from "expo-router";
+import { useEffect, useState } from "react";
+import { Image, Pressable, Text, View } from "react-native";
 
 interface ProfessionalProps {
   id: string;
@@ -24,7 +24,9 @@ export default function Booking() {
 
   useEffect(() => {
     async function getProfessionals() {
-      const response = await fetch("http://192.168.1.132:3000/professionals");
+      const response = await fetch(
+        "https://barberhouse-hsdm.onrender.com/professionals",
+      );
 
       const data = await response.json();
       setProfessionals(data);

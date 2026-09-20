@@ -50,3 +50,4 @@ export function ServiceCard({ service }: ServiceProps) {
     </Pressable>
   );
 }
+

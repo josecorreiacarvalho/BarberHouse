@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import { View, Text, FlatList, Pressable, Alert } from "react-native";
 import { router } from "expo-router";
+import { useEffect, useState } from "react";
+import { Alert, FlatList, Pressable, Text, View } from "react-native";
 
 interface AppointmentProps {
   id: string;
@@ -16,7 +16,9 @@ export default function Appointments() {
 
   useEffect(() => {
     async function getAppointments() {
-      const response = await fetch("http://192.168.1.132:3000/appointments");
+      const response = await fetch(
+        "https://barberhouse-hsdm.onrender.com/appointments",
+      );
 
       const data = await response.json();
 
@@ -38,9 +40,12 @@ export default function Appointments() {
           text: "Sim",
           style: "destructive",
           onPress: async () => {
-            await fetch(`http://192.168.1.132:3000/appointments/${id}`, {
-              method: "DELETE",
-            });
+            await fetch(
+              `https://barberhouse-hsdm.onrender.com/appointments/${id}`,
+              {
+                method: "DELETE",
+              },
+            );
 
             setAppointments((oldAppointments) =>
               oldAppointments.filter((appointment) => appointment.id !== id),
@@ -103,3 +108,4 @@ export default function Appointments() {
     </View>
   );
 }
+

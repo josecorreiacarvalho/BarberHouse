@@ -1,6 +1,6 @@
-import { View, Text, Pressable, Alert } from "react-native";
 import { router, useLocalSearchParams } from "expo-router";
 import { useEffect, useState } from "react";
+import { Alert, Pressable, Text, View } from "react-native";
 
 interface ServiceProps {
   id: string;
@@ -24,11 +24,11 @@ export default function Confirm() {
   useEffect(() => {
     async function getData() {
       const serviceResponse = await fetch(
-        `http://192.168.1.132:3000/services/${id}`,
+        `https://barberhouse-hsdm.onrender.com/services/${id}`,
       );
 
       const professionalResponse = await fetch(
-        `http://192.168.1.132:3000/professionals/${professionalId}`,
+        `https://barberhouse-hsdm.onrender.com/professionals/${professionalId}`,
       );
 
       const serviceData = await serviceResponse.json();
@@ -45,37 +45,40 @@ export default function Confirm() {
     try {
       console.log("CLICOU NO BOTÃO");
 
-      const response = await fetch("http://192.168.1.132:3000/appointments", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const response = await fetch(
+        "https://barberhouse-hsdm.onrender.com/appointments",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            serviceId: service?.id,
+            serviceName: service?.name,
+            professionalId: professional?.id,
+            professionalName: professional?.name,
+            date,
+            time,
+            price: service?.price,
+          }),
         },
-        body: JSON.stringify({
-          serviceId: service?.id,
-          serviceName: service?.name,
-          professionalId: professional?.id,
-          professionalName: professional?.name,
-          date,
-          time,
-          price: service?.price,
-        }),
-      });
+      );
 
       console.log("STATUS:", response.status);
 
       const data = await response.json();
 
       console.log("RESPOSTA:", data);
-    Alert.alert(
-  "Agendamento confirmado!",
-  "Seu horário foi agendado com sucesso.",
-  [
-    {
-      text: "OK",
-    onPress: () => router.replace("/agendamentos"),
-    },
-  ]
-);
+      Alert.alert(
+        "Agendamento confirmado!",
+        "Seu horário foi agendado com sucesso.",
+        [
+          {
+            text: "OK",
+            onPress: () => router.replace("/agendamentos"),
+          },
+        ],
+      );
     } catch (error) {
       console.log("ERRO AO SALVAR:", error);
     }

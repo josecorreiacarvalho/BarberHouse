@@ -1,6 +1,6 @@
-import { View, Text, Image, Pressable } from "react-native";
-import { useLocalSearchParams, router } from "expo-router";
+import { router, useLocalSearchParams } from "expo-router";
 import { useEffect, useState } from "react";
+import { Image, Pressable, Text, View } from "react-native";
 
 interface ServiceProps {
   id: string;
@@ -27,7 +27,9 @@ export default function ServiceDetails() {
 
   useEffect(() => {
     async function getService() {
-      const response = await fetch(`http://192.168.1.132:3000/services/${id}`);
+      const response = await fetch(
+        `https://barberhouse-hsdm.onrender.com/services/${id}`,
+      );
 
       const data = await response.json();
       setService(data);
